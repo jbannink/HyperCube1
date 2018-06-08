@@ -485,7 +485,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
@@ -519,8 +519,17 @@
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
+ * Steps per Unit (X and Y Axes) = Motor Steps per Revolution / Idler Teeth / Belt Pitch
+ * motor steps per revolution = 3200
+ * 20 teeth = 160
+ * 2 mm belt = 80
+ *
+ * Steps per Unit (Z Axis) = Motor Steps per Revolution / Rod Pitch
+ * motor  1.8 degree makes 200  for complete turn
+ * stepperdriver 1/16 step makes 3200 steps per turn. pitch 1,5, so 3200/1,5=2133.33
+ * 
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2133, 500 }
 
 /**
  * Default Max Feed Rate (mm/s)
