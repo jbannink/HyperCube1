@@ -527,9 +527,9 @@
  * Steps per Unit (Z Axis) = Motor Steps per Revolution / Rod Pitch
  * motor  1.8 degree makes 200  for complete turn
  * stepperdriver 1/16 step makes 3200 steps per turn. pitch 1,5, so 3200/1,5=2133.33
- * 
+ * Extruder: 3200/(11*pi)=3200/24,5575...)= 92,599239617102740810986916871281 
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2133, 500 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2133.33, 93 }
 
 /**
  * Default Max Feed Rate (mm/s)
